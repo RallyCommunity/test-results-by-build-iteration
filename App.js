@@ -148,7 +148,7 @@
                         "Verdict"       : tcrVerdict,
                         "Build"         : tcrBuild,
                         "TestCaseName"      : testName,
-                        "TestCaseFormattedID"   : testFid,
+                        "TestCase"   : testFid,
                         "Method"    : testMethod   
                     };
                             
@@ -169,7 +169,8 @@
 
         var gridStore = Ext.create('Rally.data.custom.Store', {
             data: that._testcaseresults,
-            groupField: 'Build'
+            //groupField: 'Build'
+            groupField: 'TestCase'
         });
 
         that._grid = Ext.create('Rally.ui.grid.Grid', {
@@ -178,10 +179,10 @@
             features: [{ftype:'grouping'}],
             columnCfgs: [
                 {
-                    text: 'Formatted ID', dataIndex: 'TestCaseFormattedID'
+                    text: 'Build', dataIndex: 'Build'
                 },
                 {
-                    text: 'TestCase', dataIndex: 'TestCaseName', 
+                    text: 'TestCase Name', dataIndex: 'TestCaseName', 
                 },
                 {
                     text: 'Method', dataIndex: 'Method', 
